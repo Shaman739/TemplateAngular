@@ -1,0 +1,37 @@
+{
+  "name": "helloapp",
+  "version": "1.0.0",
+  "description": "First Angular 10 Project",
+  "author": "Eugene Popov metanit.com",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build"
+  },
+  "dependencies": {
+    "@angular/animations": "^10.0.0",
+    "@angular/cdk": "^10.0.0",
+    "@angular/common": "^10.0.0",
+    "@angular/compiler": "^10.0.0",
+    "@angular/core": "^10.0.0",
+    "@angular/forms": "^10.0.0",
+    "@angular/material": "^10.0.0",
+    "@angular/material-moment-adapter": "^10.0.0",
+    "@angular/platform-browser": "^10.0.0",
+    "@angular/platform-browser-dynamic": "^10.0.0",
+    "@angular/router": "^10.0.0",
+    "angular-in-memory-web-api": "~0.11.0",
+    "bootstrap": "^4.5.3",
+    "moment": "^2.26.0",
+    "rxjs": "^6.5.5",
+    "tslib": "^1.11.2",
+    "zone.js": "~0.10.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.1002.0",
+    "@angular/cli": "~10.0.0",
+    "@angular/compiler-cli": "~10.0.0",
+    "@types/node": "~14.0.0",
+    "typescript": "~3.9.5"
+  }
+}
