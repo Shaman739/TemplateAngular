@@ -1,4 +1,4 @@
-import { IdentityObject } from "../../core/model";
+import { IdentityObject } from "../../../core/model";
 
 export class House extends IdentityObject{
     number: Number;

@@ -16,8 +16,14 @@ body {
 tr.mat-footer-row {
   font-weight: bold;
 }
-tr.mat-row, tr.mat-footer-row {
- /* height: 28px !important;*/
+.btn-default
+{
+   margin: 3px;
+    padding: 3px;
+}
+.mat-raised-button
+{
+  margin: 10px;
 }
 
 

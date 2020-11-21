@@ -11,7 +11,7 @@ import { GridModule }   from './core/component/grid/grid.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-import { HouseModule }   from './forms/house.module';
+import { HouseModule }   from './forms/house/house.module';
 import { ErrorDialogComponent } from './core/http/error-dialog.component';
 
 @NgModule({

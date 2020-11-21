@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
-import { GridModule }   from '../core/component/grid/grid.module';
+import { GridModule }   from '../../core/component/grid/grid.module';
 import { HttpClientModule }   from '@angular/common/http';
 import { HouseComponent, HouseEditForm } from './house.component';
 import { MatButtonModule } from '@angular/material/button';

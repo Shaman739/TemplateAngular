@@ -1,14 +1,14 @@
-import { Input, Component,ChangeDetectorRef } from '@angular/core';
+import { Input, Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { FetchQueryParam,FetchDataResult,HttpService } from '../../http';
+import { FetchQueryParam,FetchDataResult } from '../../http';
 import { IdentityObject } from '../../../core/model/identity-object.model';
 import { animate, state, style, transition, trigger} from '@angular/animations';
-import { GridOperationResult,GridAdapter,GridConfiguration,GridData } from './model';
+import { GridAdapter,GridConfiguration,GridData } from './model';
+import { RefreshCollection,ChangeResult } from '../../model';
 @Component({
     selector: 'grid',
     styleUrls: ['grid.css'],
     templateUrl: 'grid.html',
-    providers: [HttpService],
     animations: [
         trigger('detailExpand', [
           state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -17,11 +17,10 @@ import { GridOperationResult,GridAdapter,GridConfiguration,GridData } from './mo
         ]),
       ],
 })
-export class GridComponent{ 
+export class GridComponent implements RefreshCollection{ 
     @Input() displayedColumns: GridConfiguration;
     @Input() userAge: number;
     @Input() crudAdapter:GridAdapter;
-
     pageSize:number = 40;
     totalCount:number = 1000;
     resultHttpQuery: GridData =new GridData();
@@ -29,12 +28,11 @@ export class GridComponent{
     selectedRow:IdentityObject =new IdentityObject();
     pageEvent: PageEvent;
 
-    constructor(private httpService: HttpService, private changeDetection: ChangeDetectorRef){}
     ngOnInit(){
         if(this.displayedColumns)
             this.columnsToDisplay = this.FillColumnsToDisplay(this.displayedColumns);
 
-        this.Load(null);
+        this.load(null);
        
 
     }
@@ -46,12 +44,15 @@ export class GridComponent{
 
         return columnsToDisplay;
     }
-
+    getAfterFinishChangeItem()
+    {
+        return this;
+    } 
     onPaginate(event?:PageEvent){
         let param: FetchQueryParam = new FetchQueryParam();
         param.countOnPage = event.pageSize;
         param.pageNumber = event.pageIndex+1;
-        this.Load(param);
+        this.load(param);
      
     }
 
@@ -59,21 +60,17 @@ export class GridComponent{
     {
         console.log(this.selectedRow);
     }
-    editRow()
+
+    deleteItemInCollection(data:ChangeResult)
     {
-        this.crudAdapter.edit(this.selectedRow.id);
-    }
-    deleteRow()
-    {
-        this.crudAdapter.delete(this.selectedRow.id).subscribe((data: GridOperationResult) => {
-          if(data !=null){
+        if(data !=null){
             this.totalCount--; 
             let removedId =  data.item.id;
             this.resultHttpQuery.items = this.resultHttpQuery.items.filter(item => item.id !== removedId);
           }
-        });
     }
-    public AddOrUpdateItem(data:GridOperationResult) { 
+    addOrUpdateItemInCollection(data:ChangeResult)
+    {
         console.log(data);
         let index = this.resultHttpQuery.items.findIndex(x => x.id ===data.item.id);
         let items = this.resultHttpQuery.items.filter(item => item.id !== data.item.id);
@@ -85,9 +82,9 @@ export class GridComponent{
         this.resultHttpQuery.items = items;
 
         this.selectedRow = data.item;
-
     }
-    private Load(param: FetchQueryParam) 
+ 
+    load(param: FetchQueryParam) 
     {
         this.crudAdapter.loadAsync(param).subscribe((data: FetchDataResult) => {
              this.resultHttpQuery = data.data;
