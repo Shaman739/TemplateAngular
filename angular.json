@@ -17,7 +17,8 @@
             "tsConfig": "tsconfig.json",
             "aot": true,
             "styles": [
-              "src/app/styles.scss"
+              "src/app/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ]
           }
         },

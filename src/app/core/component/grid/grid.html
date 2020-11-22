@@ -1,4 +1,4 @@
-<input *ngFor="let command of displayedColumns.listTopMenuCommand" type="button" value="{{command.getName()}}" class="btn btn-default" (click)="command.execute(selectedRow, getAfterFinishChangeItem())" />
+<input *ngFor="let command of displayedColumns.listTopMenuCommand" type="button" value="{{command.getName()}}" class="btn btn-primary" (click)="command.execute(selectedRow, getAfterFinishChangeItem())" />
 <mat-paginator [length]="totalCount" [pageSize]="pageSize" (page)="onPaginate($event)"></mat-paginator> 
 
 <table mat-table [dataSource]="resultHttpQuery.items" class="mat-elevation-z8" multiTemplateDataRows>
@@ -11,7 +11,7 @@
     <td mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.columns.length">
       <div class="example-element-detail"  
            [@detailExpand]="row.id == selectedRow.id ? 'expanded' : 'collapsed'">
-           <input *ngFor="let command of displayedColumns.listRowCommand" type="button" value="{{command.getName()}}" class="btn btn-default" (click)="command.execute(selectedRow, getAfterFinishChangeItem())" />
+           <input *ngFor="let command of displayedColumns.listRowCommand" type="button" value="{{command.getName()}}" class="btn btn-primary" (click)="command.execute(selectedRow, getAfterFinishChangeItem())" />
       </div>
     </td>
   </ng-container>
