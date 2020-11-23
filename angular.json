@@ -5,7 +5,6 @@
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
-      
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -33,6 +32,6 @@
   },
   "defaultProject": "registerHouse",
   "cli": {
-    "analytics": false
+    "analytics": "1196a741-31cc-49a9-8a90-8a6c3f2819e7"
   }
 }

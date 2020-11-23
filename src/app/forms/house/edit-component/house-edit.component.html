@@ -1,8 +1,23 @@
 <h2 mat-dialog-title>Редактирование дома</h2>
 <mat-dialog-content class="mat-typography">
-  <input placeholder="Номер..." [(ngModel)]="item.number" class="form-control"/>
+  <div class="container">
+    <div class="row">
+      <label class="col-sm-5 col-form-label">Номер дома</label>
+      <div class="col-sm-7">
+        <input placeholder="Номер дома" [(ngModel)]="item.number" class="form-control"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">Квартиры</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+         <grid [displayedColumns] = "gridConfigurationHouse" [crudAdapter]="crudAdapterHouse"></grid>
+      </div>
+    </div>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button class="btn btn-success" (click)="ok()">ОК</button>
-  <button class="btn btn-outline-secondary">Отмена</button>
+  <button type="button" class="btn btn-secondary" mat-dialog-close>Отмена</button>
+  <button type="button" class="btn btn-primary" (click)="ok()">ОК</button>
 </mat-dialog-actions>

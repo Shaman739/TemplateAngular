@@ -31,7 +31,7 @@ export class HouseComponent extends BaseDataComponent implements EditableDataFor
     }
     gridConfiguration:GridConfiguration = new GridConfiguration();
     crudAdapter:CrudHttpGridAdapter;
-    listCommand:Array<Command>;
+
 
     addOrUpdateFormAsync(paramEdit: EditServiceParam) : Promise<ChangeResult>
     {

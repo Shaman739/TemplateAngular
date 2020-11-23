@@ -20,7 +20,16 @@ import { RefreshCollection,ChangeResult } from '../../model';
 export class GridComponent implements RefreshCollection{ 
     @Input() displayedColumns: GridConfiguration;
     @Input() userAge: number;
-    @Input() crudAdapter:GridAdapter;
+    @Input() _crudAdapter:GridAdapter;
+
+    @Input()
+    set crudAdapter(crudAdapter:GridAdapter) {
+       
+            this._crudAdapter = crudAdapter;
+            this.load(null);
+    }
+    get crudAdapter() { return this._crudAdapter; }
+
     pageSize:number = 40;
     totalCount:number = 1000;
     resultHttpQuery: GridData =new GridData();
@@ -31,10 +40,6 @@ export class GridComponent implements RefreshCollection{
     ngOnInit(){
         if(this.displayedColumns)
             this.columnsToDisplay = this.FillColumnsToDisplay(this.displayedColumns);
-
-        this.load(null);
-       
-
     }
     private FillColumnsToDisplay(config:GridConfiguration):string[] {
         let columnsToDisplay = [];
@@ -86,9 +91,11 @@ export class GridComponent implements RefreshCollection{
  
     load(param: FetchQueryParam) 
     {
-        this.crudAdapter.loadAsync(param).subscribe((data: FetchDataResult) => {
-             this.resultHttpQuery = data.data;
-             this.totalCount = data.totalCount;
-        });
+        if(this.crudAdapter){
+            this.crudAdapter.loadAsync(param).subscribe((data: FetchDataResult) => {
+                this.resultHttpQuery = data.data;
+                this.totalCount = data.totalCount;
+            });
+       }
     }
 }

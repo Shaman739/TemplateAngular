@@ -13,6 +13,17 @@ import { MatInputModule } from '@angular/material/input';
 
 import { HouseModule }   from './forms/house/house.module';
 import { ErrorDialogComponent } from './core/http/error-dialog.component';
+import { AboutModule } from './forms/about/about.module';
+
+import {Routes, RouterModule} from '@angular/router';
+import { AboutComponent } from './forms/about/about.component';
+import { HouseComponent } from './forms/house/data-component/house.component';
+import { APP_BASE_HREF } from '@angular/common';
+// определение маршрутов
+const appRoutes: Routes =[
+    { path: '', component: HouseComponent},
+    { path: 'about', component: AboutComponent}
+];
 
 @NgModule({
     imports:      [ 
@@ -20,17 +31,19 @@ import { ErrorDialogComponent } from './core/http/error-dialog.component';
         MatNativeDateModule,
         ReactiveFormsModule,
         BrowserModule, 
+        RouterModule.forRoot(appRoutes),
         FormsModule, 
         HttpClientModule,
         GridModule,
         MatButtonModule,
         MatDialogModule,
         MatInputModule,
-        HouseModule],
+        HouseModule,
+        AboutModule],
     declarations: [ AppComponent, ErrorDialogComponent],
     bootstrap:    [ AppComponent ],
     providers: [
-        { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+        { provide: APP_BASE_HREF, useValue: '/' },{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
       ]
 })
 export class AppModule { }

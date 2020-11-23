@@ -28,6 +28,7 @@ export class BaseEditComponent<T extends IdentityObject>
       if(data != null){
          this.item=data;
          this.isEdit = true;
+         this.editForm.loadedItem(this.item);
       }
     });
   }

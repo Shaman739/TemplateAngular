@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
   
 @Component({
     selector: 'my-app',
-    template: `<house-comp></house-comp>`
+    templateUrl:'app.component.html' 
 })
 export class AppComponent { 
 }
