@@ -1,6 +1,6 @@
 import { IdentityObject } from '../../../model/identity-object.model';
 import { ChangeResult, RefreshCollection } from '../../../model';
-import { EditFormComponent } from '../model/edit-form.model';
+import { EditFormComponent,EditParam } from '../../../component/edit-form';
 import { Command } from '../../command';
 export class FormAddCommand implements Command
 {
@@ -10,7 +10,7 @@ export class FormAddCommand implements Command
   }
   execute(item:IdentityObject,afterFinishOperation: RefreshCollection)
   {
-    return this.editForm.addAsync().then((changedItem)=>
+    return this.editForm.addAsync(this.getParam()).then((changedItem)=>
     {
       let changeResult:ChangeResult = new ChangeResult();
       changeResult.item = changedItem.item;
@@ -21,5 +21,9 @@ export class FormAddCommand implements Command
   getName()
   {
       return "Добавить";
+  }
+  getParam():EditParam
+  {
+    return new EditParam();
   }
 }

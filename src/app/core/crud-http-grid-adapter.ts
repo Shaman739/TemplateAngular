@@ -2,7 +2,7 @@ import { FetchQueryParam,HttpServiceModel,FetchDataResult } from './http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { GridAdapter } from '../core/component/grid/model';
-import { EditFormComponent } from './common/form';
+import { EditFormComponent } from './component/edit-form';
 export class CrudHttpGridAdapter implements GridAdapter
 {
     httpService:HttpServiceModel;

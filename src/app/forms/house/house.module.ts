@@ -7,9 +7,10 @@ import { HouseComponent } from './data-component/house.component';
 import { HouseEditComponent  } from './edit-component/house-edit.component'; 
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FlatModule } from '../flat/flat.module';
 
 @NgModule({
-    imports:      [ BrowserModule, FormsModule,HttpClientModule,GridModule,MatButtonModule,MatDialogModule],
+    imports:      [ BrowserModule, FormsModule,HttpClientModule,GridModule,MatButtonModule,MatDialogModule,FlatModule],
     declarations: [ HouseComponent,HouseEditComponent],
     entryComponents: [ HouseComponent,HouseEditComponent],
     exports: [ HouseComponent,HouseEditComponent] 

@@ -2,9 +2,10 @@ import { Component} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpService } from '../../../core/http';
 import { CrudHttpGridAdapter } from '../../../core/crud-http-grid-adapter';
-import { EditServiceParam,BaseDataComponent, EditableDataFormModel, FormEditCommand, FormAddCommand } from '../../../core/common/form';
+import { FormEditCommand, FormAddCommand } from '../../../core/common/form';
+import { EditItemsParam } from '../../../core/component/edit-form';
+import { EditableDataFormModel,BaseDataComponent } from '../../../core/component/data-form';
 import { GridConfiguration, GridDisplayedColumns } from '../../../core/component/grid';
-import { Command } from '../../../core/common';
 import { HttpDeleteCommand } from '../../../core/http';
 import { ChangeResult } from '../../../core/model';
 import { HouseEditComponent } from '../edit-component/house-edit.component';
@@ -33,7 +34,7 @@ export class HouseComponent extends BaseDataComponent implements EditableDataFor
     crudAdapter:CrudHttpGridAdapter;
 
 
-    addOrUpdateFormAsync(paramEdit: EditServiceParam) : Promise<ChangeResult>
+    addOrUpdateFormAsync(paramEdit: EditItemsParam) : Promise<ChangeResult>
     {
       const promise = new Promise<ChangeResult>((resolve, reject) => {
         const dialogRef = this.dialog.open(HouseEditComponent, {

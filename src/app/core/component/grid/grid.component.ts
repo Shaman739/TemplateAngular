@@ -31,7 +31,7 @@ export class GridComponent implements RefreshCollection{
     get crudAdapter() { return this._crudAdapter; }
 
     pageSize:number = 40;
-    totalCount:number = 1000;
+    totalCount:number = null;
     resultHttpQuery: GridData =new GridData();
     columnsToDisplay: string[] = [];
     selectedRow:IdentityObject =new IdentityObject();
@@ -76,19 +76,23 @@ export class GridComponent implements RefreshCollection{
     }
     addOrUpdateItemInCollection(data:ChangeResult)
     {
-        console.log(data);
-        let index = this.resultHttpQuery.items.findIndex(x => x.id ===data.item.id);
-        let items = this.resultHttpQuery.items.filter(item => item.id !== data.item.id);
-        if(index == -1){
-          index =0;
-          this.totalCount++; 
-        }
-        items.splice(index, 0, data.item);
-        this.resultHttpQuery.items = items;
+        if(data.item)
+        {
+            let index = this.resultHttpQuery.items.findIndex(x => x.id ===data.item.id);
+            let items = this.resultHttpQuery.items.filter(item => item.id !== data.item.id);
+           
+            if(index == -1){
+                index =0;
+                this.totalCount++; 
+            }
+           
+            items.splice(index, 0, data.item);
+            this.resultHttpQuery.items = items;
 
-        this.selectedRow = data.item;
+            this.selectedRow = data.item;
+        }
     }
- 
+
     load(param: FetchQueryParam) 
     {
         if(this.crudAdapter){

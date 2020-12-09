@@ -16,8 +16,9 @@ export class CrudListGridAdapter implements GridAdapter
         let result:FetchDataResult = new FetchDataResult();
         result.data = new GridData();
         result.data.items = this.items;
-        result.totalCount = this.items.length;
-            return of(result);
+        if(this.items)
+            result.totalCount = this.items.length;
+        return of(result);
       
         }    
 }

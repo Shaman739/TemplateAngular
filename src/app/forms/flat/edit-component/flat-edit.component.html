@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Редактирование дома</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    <div class="row">
+      <label class="col-sm-5 col-form-label">Номер дома</label>
+      <div class="col-sm-7">
+        <input placeholder="Номер квартиры" [(ngModel)]="item.number" class="form-control"/>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button type="button" class="btn btn-secondary" mat-dialog-close>Отмена</button>
+  <button type="button" class="btn btn-primary" (click)="ok()">ОК</button>
+</mat-dialog-actions>

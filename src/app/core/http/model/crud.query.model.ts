@@ -1,3 +1,4 @@
+import { IdentityObject } from '../../model';
 export class CRUDQuery{
-    item: any;
+    item: IdentityObject;
 }

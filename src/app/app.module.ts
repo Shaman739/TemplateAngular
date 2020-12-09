@@ -12,6 +12,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { HouseModule }   from './forms/house/house.module';
+import { FlatModule }   from './forms/flat/flat.module';
 import { ErrorDialogComponent } from './core/http/error-dialog.component';
 import { AboutModule } from './forms/about/about.module';
 
@@ -39,7 +40,8 @@ const appRoutes: Routes =[
         MatDialogModule,
         MatInputModule,
         HouseModule,
-        AboutModule],
+        AboutModule,
+        FlatModule],
     declarations: [ AppComponent, ErrorDialogComponent],
     bootstrap:    [ AppComponent ],
     providers: [

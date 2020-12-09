@@ -6,7 +6,7 @@ export interface EditFormModel
 }
 export interface EditFormComponent
 {
-    addAsync() : Promise<ChangeResult>;
+    addAsync(data:EditParam) : Promise<ChangeResult>;
     editAsync(data:EditParam) : Promise<ChangeResult>;
 }
 export class EditParam
@@ -16,4 +16,8 @@ export class EditParam
 export class EditServiceParam extends EditParam
 {
     url:string;
+}
+export class EditItemsParam extends EditParam
+{
+    public items:Array<IdentityObject>;
 }
