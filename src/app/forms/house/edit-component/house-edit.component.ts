@@ -52,8 +52,10 @@ import { FlatEditComponent } from '../../flat/edit-component/flat-edit.component
      
       this.dataComponent = new GridDataArrayAdapter(this.item.flats,this);
       this.gridConfigurationHouse = new GridConfiguration();
-      this.gridConfigurationHouse.columns.push(new GridDisplayedColumns("id","ID"));
+
       this.gridConfigurationHouse.columns.push(new GridDisplayedColumns("number","Номер квартиры"));
+      this.gridConfigurationHouse.columns.push(new GridDisplayedColumns("numberOfPersonLiving","Количество проживающих в квартире"));
+      this.gridConfigurationHouse.columns.push(new GridDisplayedColumns("area","Площать квартиры"));
 
       this.gridConfigurationHouse.listTopMenuCommand.push(new FormAddCommand(this.dataComponent));
       this.gridConfigurationHouse.listRowCommand.push(new FormEditCommand(this.dataComponent))

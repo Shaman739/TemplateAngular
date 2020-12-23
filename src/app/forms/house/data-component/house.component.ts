@@ -18,13 +18,13 @@ import { HouseEditComponent } from '../edit-component/house-edit.component';
 })
 export class HouseComponent extends BaseDataComponent implements EditableDataFormModel{ 
     constructor(public dialog: MatDialog, private httpService: HttpService) {
-      super('http://localhost:50019/house');
+      super('/house');
       super.setEditForm(this);
-      this.gridConfiguration.columns.push(new GridDisplayedColumns("id","ID"));
       this.gridConfiguration.columns.push(new GridDisplayedColumns("number","Номер"));
+      this.gridConfiguration.columns.push(new GridDisplayedColumns("countOfEntrance","Количество подъездов"));
+      this.gridConfiguration.columns.push(new GridDisplayedColumns("countOfFloor","Количество зтажей"));
       this.gridConfiguration.url = this.url;
       this.crudAdapter = new CrudHttpGridAdapter(this.httpService,this.url,this);
-
 
       this.gridConfiguration.listTopMenuCommand.push(new FormAddCommand(this));
       this.gridConfiguration.listRowCommand.push(new FormEditCommand(this));

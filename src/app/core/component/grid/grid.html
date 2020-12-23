@@ -4,7 +4,7 @@
 <table mat-table [dataSource]="resultHttpQuery.items" class="mat-elevation-z0" multiTemplateDataRows>
   <ng-container [matColumnDef]="column.value" *ngFor="let column of displayedColumns.columns">
     <th mat-header-cell *matHeaderCellDef> {{column.displayName}} </th>
-    <td mat-cell *matCellDef="let element"> {{element[column.value]}} </td>
+    <td class='border1px' mat-cell *matCellDef="let element"> {{element[column.value]}} </td>
   </ng-container>
 
    <ng-container matColumnDef="expandedDetail">
@@ -17,7 +17,6 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" class="example-element-row" [class.example-expanded-row]="selectedRow.id === row.id"
-  (click)="selectedRow = selectedRow === row ? null : row"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" class="example-element-row" [class.example-expanded-row]="selectedRow.id === row.id"  (click)="selectedRow = selectedRow === row ? null : row"></tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>

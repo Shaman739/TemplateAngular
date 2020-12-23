@@ -25,6 +25,18 @@ tr.mat-footer-row {
 {
   margin: 10px;
 }
-
-
-  
+table.mat-table {
+  border: 1px solid #c3c3c3 !important;
+}
+table thead
+{
+  background: #e4e4e4 !important;
+}
+table thead tr th{
+  font-weight: bold  !important;
+    font-size: 14px  !important;
+}
+td {
+  border: 1px solid #c3c3c3;
+  padding: 0px 5px 0px 5px !important;
+}

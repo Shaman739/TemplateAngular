@@ -8,5 +8,7 @@ export class House extends IdentityObject{
              this.flats = new Array<Flat>();
     }
     number: Number;
+    countOfEntrance: Number;
+    countOfFloor: Number;
     flats : Array<Flat>
 }

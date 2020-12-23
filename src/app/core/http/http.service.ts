@@ -78,6 +78,17 @@ export class HttpService implements HttpServiceModel{
 
     private resultHandle(data:ResultHttpQuery)
     {
+    if(data.question && data.question.length>0)
+    {
+        data.question.forEach(element => {
+            let errorDialogParam:ErrorDialogParam = new ErrorDialogParam();
+            errorDialogParam.caption = "Сообщение";
+            errorDialogParam.message = element.message;
+            errorDialogParam.buttons = element.buttons;
+            this.openDialogError(errorDialogParam);
+        });
+    }
+
        if(data.isSuccess == true)
        {
                return data.data;

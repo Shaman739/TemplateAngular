@@ -5,8 +5,8 @@
   "author": "Eugene Popov metanit.com",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build"
+    "start": "ng serve --proxy-config proxy.config.json",
+    "build": "ng build --prod --output-path ../RegisterHouse/wwwroot"
   },
   "dependencies": {
     "@angular/animations": "^10.0.0",
