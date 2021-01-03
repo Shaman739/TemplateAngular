@@ -9,10 +9,11 @@ import { ChangeResult,IdentityObject } from '../../../core/model';
 import { GridConfiguration, GridDisplayedColumns } from '../../../core/component/grid';
 import { CrudListGridAdapter } from '../../../core/crud-list-grid-adapter';
 import { FlatEditComponent } from '../../flat/edit-component/flat-edit.component';
+import { HttpMessageShow } from '../../../core/http/http-message-show'; 
 @Component({
     selector: 'house-edit-comp',
     templateUrl: 'house-edit.component.html',
-    providers: [HttpService]
+    providers: [HttpService, HttpMessageShow]
   })
   export class HouseEditComponent extends BaseEditComponent<House> implements EditFormModel, EditableDataFormModel{
 

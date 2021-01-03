@@ -5,4 +5,5 @@ export class ErrorDialogParam
     caption:string;
     message:string;
     buttons:Array<Button>;
+    result:string;
 }

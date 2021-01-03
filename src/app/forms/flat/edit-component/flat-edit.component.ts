@@ -7,10 +7,11 @@ import { EditFormModel, EditItemsParam,BaseEditComponent} from '../../../core/co
 import { ChangeResult,IdentityObject } from '../../../core/model';
 import { GridConfiguration, GridDisplayedColumns } from '../../../core/component/grid';
 import { CrudListGridAdapter } from '../../../core/crud-list-grid-adapter';
+import { HttpMessageShow } from '../../../core/http/http-message-show'; 
 @Component({
     selector: 'flat-edit-comp',
     templateUrl: 'flat-edit.component.html',
-    providers: [HttpService]
+    providers: [HttpService,HttpMessageShow]
   })
   export class FlatEditComponent extends BaseEditComponent<Flat> implements EditFormModel{
 

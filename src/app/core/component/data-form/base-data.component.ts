@@ -1,6 +1,10 @@
+import { Component} from '@angular/core';
 import { EditFormComponent as EditFormComponent, EditServiceParam, EditParam  } from '../edit-form/model/edit-form.model';
 import { EditableDataFormModel } from './model/editable-data-form.model'; 
 import { ChangeResult } from '../../model';
+import { HttpMessageShow } from '../../../core/http/http-message-show';
+import { HttpService } from '../../../core/http';
+
 export class BaseDataComponent implements EditFormComponent
 {
     protected editableForm : EditableDataFormModel

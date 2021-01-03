@@ -41,18 +41,20 @@ export class BaseEditComponent<T extends IdentityObject>
   {
       let CRUDQueryParam:CRUDQuery = new CRUDQuery();
       CRUDQueryParam.item = this.item;
-      let query : Observable<any>;
+     
+      let action:Observable<any>;
       if(this.isEdit)
-        query = this.applyChangesAdapter.updateItem(CRUDQueryParam);
+         action = this.applyChangesAdapter.updateItem(CRUDQueryParam)
       else
-        query = this.applyChangesAdapter.addItem(CRUDQueryParam);
-    
-      query.subscribe((data: any) => {
-          if(data != null){
-            this.checkEditForm();
-            this.editForm.close(data);
-          }
-        });
+         action = this.applyChangesAdapter.addItem(CRUDQueryParam);
+     
+         action.subscribe(item => {
+        if(item != null){
+          this.checkEditForm();
+          this.editForm.close(item);
+        }
+      });
+      
   }
   private checkEditForm()
   {

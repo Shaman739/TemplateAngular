@@ -9,11 +9,12 @@ import { GridConfiguration, GridDisplayedColumns } from '../../../core/component
 import { HttpDeleteCommand } from '../../../core/http';
 import { ChangeResult } from '../../../core/model';
 import { HouseEditComponent } from '../edit-component/house-edit.component';
+import { HttpMessageShow } from '../../../core/http/http-message-show';
 
 @Component({
     selector: 'house-comp',
     templateUrl: 'house.component.html',
-    providers: [HttpService]
+    providers: [HttpService,HttpMessageShow]
     
 })
 export class HouseComponent extends BaseDataComponent implements EditableDataFormModel{ 

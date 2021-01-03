@@ -1,6 +1,6 @@
 import {Question} from './question.model'
 export class ResultHttpQuery{
-    isSuccess: boolean;
+    status: string;
     message:string;
     data:any;
     question:Array<Question>;

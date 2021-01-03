@@ -12,7 +12,7 @@ import { Button } from './model/button.model';
                      {{errorDialogParam.message}}
                 </div>
                 <mat-dialog-actions>
-                    <input *ngFor="let button of errorDialogParam.buttons" type="button" value="{{button.label}}" (click)="ok()" class="btn btn-primary" />
+                    <input *ngFor="let button of errorDialogParam.buttons" type="button" value="{{button.label}}" (click)="ok(button.result)" class="btn btn-primary" />
                 </mat-dialog-actions>
                 `
   })
@@ -30,9 +30,10 @@ import { Button } from './model/button.model';
       }
     }
    
-    ok()
+    ok(value:string)
     {
-        this.dialogRef.close();
+      console.log(value);
+      this.dialogRef.close(value);
     }
 
   }

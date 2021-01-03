@@ -3,5 +3,6 @@ export class Question
 {
     id:Number;
     message:string;
-    buttons: Array<Button>
+    buttons: Array<Button>;
+    result:string;
 }
