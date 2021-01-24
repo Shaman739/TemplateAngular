@@ -1,0 +1,24 @@
+
+  <div class="container"> 
+    <h2 mat-dialog-title>Регистрация</h2>
+      <div class="form-group">
+        <div class="row">
+           <div class="col-sm-4">
+             <label >Email</label>
+             <input type="text" class="form-control" [(ngModel)]="item.email" [ngModelOptions]="{standalone: true}">
+          </div>
+        
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+
+        <label>Пароль</label>
+        <input type="text" class="form-control" [(ngModel)]="item.password" [ngModelOptions]="{standalone: true}">
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  <button type="button" class="btn btn-success" (click)="ok()">Зарегистрироваться</button>
+</div>
+</div>

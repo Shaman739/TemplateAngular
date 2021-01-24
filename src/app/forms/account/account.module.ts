@@ -3,17 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { GridModule }   from '../../core/component/grid/grid.module';
 import { HttpClientModule }   from '@angular/common/http';
-import { HouseComponent } from './data-component/house.component';
-import { HouseEditComponent  } from './edit-component/house-edit.component'; 
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FlatModule } from '../flat/flat.module';
-import { MaxValidator} from '../../core/directive/input/max-validatoe.directive';
+import { LoginComponent } from './login/edit-component/login-edit.component';
+import { RegistrationComponent } from './registration/edit-component/registration-edit.component';
 
 @NgModule({
     imports:      [ BrowserModule, FormsModule,HttpClientModule,GridModule,MatButtonModule,MatDialogModule,FlatModule],
-    declarations: [ HouseComponent,HouseEditComponent,MaxValidator],
-    entryComponents: [ HouseComponent,HouseEditComponent],
-    exports: [ HouseComponent,HouseEditComponent] 
+    declarations: [ LoginComponent,RegistrationComponent],
+    entryComponents: [ LoginComponent,RegistrationComponent],
+    exports: [ LoginComponent,RegistrationComponent] 
 })
-export class HouseModule { }
+export class AccountModule { }

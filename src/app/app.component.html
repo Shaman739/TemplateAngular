@@ -2,17 +2,23 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="">Дома</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/about">О программе</a>
-        </li>
-      </ul>
-    </div>
+ <!-- <top-side></top-side>-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/street">Улицы</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="">Дома</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">О программе</a>
+      </li>
+    </ul>
+  </div>
+  <a class="nav-link red" routerLink="/login" *ngIf="!(profileData.isAuthorize)">Логин</a>
+  <a class="nav-link red" (click)="logout()" *ngIf="profileData.isAuthorize">Выход</a>
+  <div  *ngIf="profileData.isAuthorize">Пользователь:{{ profileData.email }} </div>
   </nav>
  <div class='container-fluid'>
     <router-outlet></router-outlet>

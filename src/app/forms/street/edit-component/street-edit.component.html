@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Редактирование улицы</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+  
+    <div class="form-group">
+      <div class="row">
+        <label class="col-sm-6 col-form-label">Название</label>
+      <div class="col-sm-6">
+        <input type="text" [(ngModel)]="item.name" required/>
+      </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button type="button" class="btn btn-secondary" mat-dialog-close>Отмена</button>
+  <button type="button" class="btn btn-primary" (click)="ok()">ОК</button>
+</mat-dialog-actions>

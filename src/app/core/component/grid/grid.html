@@ -1,14 +1,15 @@
+
 <input *ngFor="let command of displayedColumns.listTopMenuCommand" type="button" value="{{command.getName()}}" class="btn btn-primary" (click)="command.execute(selectedRow, getAfterFinishChangeItem())" />
 <mat-paginator *ngIf="totalCount>pageSize && totalCount>0" [length]="totalCount" [pageSize]="pageSize" (page)="onPaginate($event)"></mat-paginator> 
-
-<table mat-table [dataSource]="resultHttpQuery.items" class="mat-elevation-z0" multiTemplateDataRows>
+<div class="fix">
+<table mat-table [dataSource]="resultHttpQuery.items" class="table table-bordered fix" multiTemplateDataRows>
   <ng-container [matColumnDef]="column.value" *ngFor="let column of displayedColumns.columns">
     <th mat-header-cell *matHeaderCellDef> {{column.displayName}} </th>
-    <td class='border1px' mat-cell *matCellDef="let element"> {{element[column.value]}} </td>
+    <td mat-cell *matCellDef="let element"> {{element[column.value]}} </td>
   </ng-container>
 
    <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.columns.length">
+    <td col="3" mat-cell *matCellDef="let row" [attr.colspan]="displayedColumns.columns.length" >
       <div class="example-element-detail"  
            [@detailExpand]="row.id == selectedRow.id ? 'expanded' : 'collapsed'">
            <input *ngFor="let command of displayedColumns.listRowCommand" type="button" value="{{command.getName()}}" class="btn btn-primary" (click)="command.execute(selectedRow, getAfterFinishChangeItem())" />
@@ -16,7 +17,8 @@
     </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true" ></tr>
   <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" class="example-element-row" [class.example-expanded-row]="selectedRow.id === row.id"  (click)="selectedRow = selectedRow === row ? null : row"></tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row" [style.display]="selectedRow.id === row.id?'block':'none'"></tr>
 </table>
+</div>

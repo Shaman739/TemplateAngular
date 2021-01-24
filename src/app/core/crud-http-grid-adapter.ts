@@ -19,7 +19,12 @@ export class CrudHttpGridAdapter implements GridAdapter
             return this.httpService.httpGet(this.url, param).pipe(map((data:any)=>{      
                 let resultQuery :FetchDataResult = new FetchDataResult();
                 resultQuery.data = data;
-                resultQuery.totalCount = data.totalCountRows;
+               
+              //  if(data==null)
+               //  data ={totalCountRows:0}; 
+               
+                 resultQuery.totalCount = data.totalCountRows;
+               
                
                 return resultQuery;
             }),

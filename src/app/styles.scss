@@ -13,13 +13,27 @@ body {
   float: right;
   margin: 8px;
 }
+.table td, .table th {
+  padding: .75rem !important;
+  vertical-align: top
+}
+table thead tr th{
+  font-size: 14px !important;
+  color:white !important;
+}
+.red
+{
+  color:white;
+  font-size: 16px;
+}
+/*
 tr.mat-footer-row {
   font-weight: bold;
 }
 .btn
 {
    margin: 3px;
-    padding: 3px;
+   padding: 3px;
 }
 .mat-raised-button
 {
@@ -40,3 +54,26 @@ td {
   border: 1px solid #c3c3c3;
   padding: 0px 5px 0px 5px !important;
 }
+
+*/
+.mat-column-expandedDetail
+{
+  border: none !important;
+}
+/*
+tr.mat-row, tr.mat-footer-row
+{
+  height:20px !important;
+}
+*/
+.fix {
+  //height: 80vh;
+  overflow: auto;
+}
+thead{
+  background-color: #007bff!important;
+}
+
+
+
+
