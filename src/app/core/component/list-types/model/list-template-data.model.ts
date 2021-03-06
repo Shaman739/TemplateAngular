@@ -1,4 +1,4 @@
-export class GridData
+export class ListTemplateData
 {
    constructor()
     {

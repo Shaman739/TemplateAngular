@@ -18,14 +18,56 @@
             "styles": [
               "src/app/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+               "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
-          }
+          },
+          "configurations":{
+            "production":{
+               "fileReplacements":[
+                  {
+                     "replace":"src/environments/environment.ts",
+                     "with":"src/environments/environment.production.ts"
+                  }
+               ]
+            },
+            "staging":{
+               "fileReplacements":[
+                  {
+                     "replace":"src/environments/environment.ts",
+                     "with":"src/environments/environment.staging.ts"
+                  }
+               ]
+            }
+         }
+
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "registerHouse:build"
-          }
+          },
+          "configurations":{
+            "production":{
+               "browserTarget":"registerHouse:build:production"
+            },
+            "staging":{
+               "browserTarget":"registerHouse:build:staging"
+            }
+         }
+        },
+        "e2e":{
+           "configurations":{
+              "production":{
+                 "browserTarget":"registerHouse:serve:production"
+              },
+              "staging":{
+                 "browserTarget":"registerHouse:serve:staging"
+              }
+           }
         }
       }
     }

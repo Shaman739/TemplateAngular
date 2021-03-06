@@ -22,7 +22,7 @@ export class FormEditCommand implements Command
   }
   getName()
   {
-      return "Редактировать";
+      return "Изменить";
   }
   
   getParam():EditParam

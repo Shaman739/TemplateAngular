@@ -8,11 +8,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FlatModule } from '../flat/flat.module';
 import { LoginComponent } from './login/edit-component/login-edit.component';
 import { RegistrationComponent } from './registration/edit-component/registration-edit.component';
-
+import { ProfileComponent } from './profile/component/profile.component';
+import { HouseModule }   from '../../forms/house/house.module';
 @NgModule({
-    imports:      [ BrowserModule, FormsModule,HttpClientModule,GridModule,MatButtonModule,MatDialogModule,FlatModule],
-    declarations: [ LoginComponent,RegistrationComponent],
-    entryComponents: [ LoginComponent,RegistrationComponent],
-    exports: [ LoginComponent,RegistrationComponent] 
+    imports:      [ BrowserModule, FormsModule,HttpClientModule,GridModule,MatButtonModule,MatDialogModule,FlatModule, HouseModule],
+    declarations: [ LoginComponent,RegistrationComponent,ProfileComponent],
+    entryComponents: [ LoginComponent,RegistrationComponent,ProfileComponent],
+    exports: [ LoginComponent,RegistrationComponent, ProfileComponent] 
 })
 export class AccountModule { }

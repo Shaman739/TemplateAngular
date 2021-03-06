@@ -5,5 +5,5 @@ export interface Command
 {
     execute(item:IdentityObject,afterFinishOperation: RefreshCollection);
     getName(): string;
-    getParam():EditParam
+    getParam():EditParam;
 }

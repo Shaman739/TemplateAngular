@@ -42,7 +42,6 @@ import { HttpMessageShow } from '../../../core/http/http-message-show';
       return promise;
     
     }
-    
     close(data:ChangeResult)
     {
       this.dialogRef.close(data);

@@ -1,18 +1,20 @@
-<h2 mat-dialog-title>Редактирование улицы</h2>
-<mat-dialog-content class="mat-typography">
-  <div class="container">
-  
-    <div class="form-group">
-      <div class="row">
-        <label class="col-sm-6 col-form-label">Название</label>
-      <div class="col-sm-6">
-        <input type="text" [(ngModel)]="item.name" required/>
+<h2 mat-dialog-title>Улица</h2>
+
+<form class="needs-validation" novalidate #myForm="ngForm" >
+  <div class="form-row">
+    <div class="col-12">
+      <label for="name">Наименовение</label>
+      <div class="md-form">
+        <input id="name" name="name" class="form-control" [ngClass]="{ 'is-invalid': name.invalid && (name.dirty),'is-valid': name.valid  }"  required  [(ngModel)]="item.name" #name="ngModel">
+        <div *ngIf="name.invalid && (name.dirty)">
+          <div *ngIf="name.errors.required" class="invalid-feedback" style='display: block;'>Поле обязательное. </div>
+        </div>
       </div>
-      </div>
-    </div>
+    </div> 
   </div>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button type="button" class="btn btn-secondary" mat-dialog-close>Отмена</button>
-  <button type="button" class="btn btn-primary" (click)="ok()">ОК</button>
-</mat-dialog-actions>
+  
+  <div mat-dialog-actions class="form-row p-3">
+      <button mat-button mat-dialog-close class="btn btn-primary" type="button">Отмена</button>
+      <button class="btn btn-primary ml-1" type="submit" (click)="ok()">Сохранить</button>
+  </div>
+</form>

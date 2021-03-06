@@ -1,9 +1,9 @@
 import { FetchQueryParam,HttpServiceModel,FetchDataResult } from './http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { GridAdapter } from '../core/component/grid/model';
+import { ListTemplateAdapter } from '../core/component/grid/model';
 import { EditFormComponent } from './component/edit-form';
-export class CrudHttpGridAdapter implements GridAdapter
+export class CrudHttpGridAdapter implements ListTemplateAdapter
 {
     httpService:HttpServiceModel;
     url:string;

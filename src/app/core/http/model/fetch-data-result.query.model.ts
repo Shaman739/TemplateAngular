@@ -1,6 +1,6 @@
-import {GridData} from '../../../core/component/grid/model';
+import {ListTemplateData} from '../../../core/component/list-types/model';
 export class FetchDataResult
 {
-    data:GridData;
+    data:ListTemplateData;
     totalCount :number;
 }

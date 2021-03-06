@@ -1,0 +1,36 @@
+<h3><i class="bi bi-house-door mr-1"></i>Дома</h3>
+
+<div class="row">
+    <div class="col">
+        <div class="float-right">     
+            <actions-commands [actions] = "listTemplateConfiguration.listTopMenuCommand" [afterFinishAction]="getAfterFinishChangeItem()"></actions-commands >
+        </div>
+    </div>
+</div>
+
+<div class="row p-1 m-1 bg-light border rounded bg-white" *ngFor="let item of resultHttpQuery.items">
+    <div class="col">
+        <div class="row p-1">
+            <div class="d-inline">
+                <i class="bi bi-house-door mr-1"></i>
+                <span>Номер дома:</span>
+            </div>
+            <div class="pl-1">{{item.number}}</div>
+        </div>
+        <div class="row p-1">
+            <div class="d-inline">Этажей:</div>
+            <div class="pl-1">{{item.countOfEntrance}}</div>
+        </div>
+        <div class="row p-1">
+            <div class="d-inline">Количество квартир:</div>
+            <div class="pl-1">{{item.flats.length}}</div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="col">
+            <div class="float-right">  
+               <actions-commands-by-item [actions] = "listTemplateConfiguration.listRowCommand" [afterFinishAction]="getAfterFinishChangeItem()" [item]="item"></actions-commands-by-item >
+            </div>
+        </div>
+    </div>
+</div>

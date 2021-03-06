@@ -5,3 +5,4 @@ export * from './grid-data-array-adapter';
 export * from './model/apply-changes-adapter.model';
 export * from './apply-changes-adapter/http-apply-changes-adapter';
 export * from './apply-changes-adapter/list-apply-changes-adapter';
+export * from './command/decorator-command/style-decorator-command';

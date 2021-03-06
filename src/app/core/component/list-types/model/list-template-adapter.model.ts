@@ -1,6 +1,6 @@
 import { FetchQueryParam, FetchDataResult } from '../../../http'; 
 import { Observable } from 'rxjs';
-export interface GridAdapter
+export interface ListTemplateAdapter
 {
     loadAsync(param: FetchQueryParam) : Observable<FetchDataResult>;
 }

@@ -7,16 +7,19 @@ import { ErrorDialogParam } from './model/error-dialog.model';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpServiceModel } from './model/http.service.model';
 import { HttpMessageShow } from './http-message-show';
-
+import { EnvironmentService } from '../../../environments';
 @Injectable()
 export class HttpService implements HttpServiceModel {
 
-    constructor(public dialog: MatDialog, private http: HttpClient,private httpMessageShow:HttpMessageShow) {
+    constructor(private environment:EnvironmentService, public dialog: MatDialog, private http: HttpClient,private httpMessageShow:HttpMessageShow) {
         
      }
 
+     private getUrl(url:string):string{
+        return this.environment.getValue('apiUrl')+url;
+     }
     public httpGet(url: string, param: any): Observable<any> {
-
+        url = this.getUrl(url);
         let params = this.getParamForUrlParams(param);
         let action: Observable<Object> = this.http.get(url, { params });
         return this.returnObservableHandle(null, action, param);
@@ -28,17 +31,20 @@ export class HttpService implements HttpServiceModel {
 
 
     public httpPost(url: string, param: any): Observable<any> {
+        url = this.getUrl(url);
         let action: Observable<Object> = this.http.post(url, param, { headers: this.headers });
         return this.returnObservableHandle(null, action, param);
 
     }
     public httpPut(url: string, param: any): Observable<any> {
+        url = this.getUrl(url);
         let action: Observable<Object> = this.http.put(url, param, { headers: this.headers });
         return this.returnObservableHandle(null, action, param);
     }
 
 
     public httpDelete(url: string, param: any): Observable<any> {
+        url = this.getUrl(url);
         let action: Observable<Object> = this.http.delete(`${url}/${param}`);
         return this.returnObservableHandle(null, action, param);
     }

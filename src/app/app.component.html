@@ -16,10 +16,21 @@
       </li>
     </ul>
   </div>
+ 
+  <div class="dropdown" *ngIf="profileData.isAuthorize">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+      {{ profileData.email }}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton">
+      <li><a class="dropdown-item" routerLink="/profile">Мой кабинет</a></li>
+      <li><a class="dropdown-item red" (click)="logout()" >Выход</a></li>
+    </ul>
+  </div>
+  
   <a class="nav-link red" routerLink="/login" *ngIf="!(profileData.isAuthorize)">Логин</a>
-  <a class="nav-link red" (click)="logout()" *ngIf="profileData.isAuthorize">Выход</a>
-  <div  *ngIf="profileData.isAuthorize">Пользователь:{{ profileData.email }} </div>
   </nav>
  <div class='container-fluid'>
     <router-outlet></router-outlet>
  </div>
+
+ 

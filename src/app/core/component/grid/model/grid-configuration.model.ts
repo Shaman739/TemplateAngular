@@ -1,14 +1,10 @@
 import { GridDisplayedColumns } from './grid-displayed-columns.model';
-import { Command } from '../../../common/command';
-export class GridConfiguration{
-    constructor()
+import { ListTemplateConfiguration } from '../../list-types';
+export class GridConfiguration extends ListTemplateConfiguration{
+    constructor() 
     {
+        super();
         this.columns = new Array<GridDisplayedColumns>();
-        this.listRowCommand = new Array<Command>();
-        this.listTopMenuCommand= new Array<Command>();
     }
     columns:Array<GridDisplayedColumns>;
-    url:string;
-    listRowCommand:Array<Command>;
-    listTopMenuCommand:Array<Command>;
 }

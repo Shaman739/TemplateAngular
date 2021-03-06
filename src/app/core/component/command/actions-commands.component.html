@@ -1,0 +1,4 @@
+<ng-template ngFor let-command [ngForOf]="actions">
+    <button href="#" type="button" class="btn btn-link" [ngClass]="command.constructor.name =='StyleDecoratorCommand' ? command.getStyle().getCssStyle() : ''" (click)="command.execute(null, afterFinishAction)"> 
+        <i *ngIf="command.constructor.name =='StyleDecoratorCommand'" class="pr-1" [ngClass]="command.getStyle().getIcon()"></i>{{command.getName()}}</button>
+</ng-template>

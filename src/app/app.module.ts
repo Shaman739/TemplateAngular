@@ -18,14 +18,16 @@ import { AccountModule } from './forms/account/account.module';
 import { FlatModule }   from './forms/flat/flat.module';
 import { ErrorDialogComponent } from './core/http/error-dialog.component';
 import { AboutModule } from './forms/about/about.module';
-
+import { ActionsCommandsModule } from './core/component/command/actions-commands.module';
 import {Routes, RouterModule} from '@angular/router';
 import { AboutComponent } from './forms/about/about.component';
-import { HouseComponent } from './forms/house/data-component/house.component';
+import { HouseComponent } from './forms/house/data-grid-component/house.component';
 import { StreetComponent } from './forms/street/data-component/street.component';
 import { LoginComponent } from './forms/account/login/edit-component/login-edit.component';
 import { RegistrationComponent } from './forms/account/registration/edit-component/registration-edit.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { ProfileComponent } from './forms/account/profile/component/profile.component';
+import {EnvironmentService,ENVIRONMENT,environment} from '../environments';
 
 
 // определение маршрутов
@@ -35,6 +37,7 @@ const appRoutes: Routes =[
     { path: 'street', component: StreetComponent},
     { path: 'login', component: LoginComponent},
     { path: 'registration', component: RegistrationComponent},
+    { path: 'profile', component: ProfileComponent},
 ];
 
 @NgModule({
@@ -43,7 +46,7 @@ const appRoutes: Routes =[
         MatNativeDateModule,
         ReactiveFormsModule,
         BrowserModule, 
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
         FormsModule, 
         HttpClientModule,
         GridModule,
@@ -54,12 +57,15 @@ const appRoutes: Routes =[
         AboutModule,
         FlatModule,
         StreetModule,
-        CommonModule
+        CommonModule,
+        ActionsCommandsModule
         ],
     declarations: [ AppComponent, ErrorDialogComponent],
     bootstrap:    [ AppComponent ],
     providers: [
-        { provide: APP_BASE_HREF, useValue: '/' },{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+        { provide: ENVIRONMENT, useValue: environment },
+        { provide: APP_BASE_HREF, useValue: '/' },
+        { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
       ]
 })
 export class AppModule { }
