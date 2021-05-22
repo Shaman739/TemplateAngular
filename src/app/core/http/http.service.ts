@@ -94,16 +94,31 @@ export class HttpService implements HttpServiceModel {
                 mainObservable.next(data.data);
             }
             else if (data.status == "Fail") {
-                let errorDialogParam: ErrorDialogParam = new ErrorDialogParam();
-                errorDialogParam.caption = "Ошибка";
-                errorDialogParam.message = data.message;
-                this.httpMessageShow.openDialogError(errorDialogParam);
-                mainObservable.next(null);
+                this.showError(data.message,mainObservable);
 
             }
 
-        })).subscribe(item => { mainObservable.next(item) });;
+        }),
 
+         catchError((err) => {
+            console.log(err);
+            this.showError(err.error.message,mainObservable);
+            return throwError(err)
+
+        })).subscribe(item => { 
+            mainObservable.next(item)   
+         });;
+
+    }
+
+    private showError(messageText:string,mainObservable: Subscriber<any>)
+    {
+        console.log();
+        let errorDialogParam: ErrorDialogParam = new ErrorDialogParam();
+        errorDialogParam.caption = "Ошибка";
+        errorDialogParam.message = messageText;
+        this.httpMessageShow.openDialogError(errorDialogParam);
+        mainObservable.next(null);
     }
 
 
